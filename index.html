@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Tangier City
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   :root {
+            --parchment: #F2E8D5;
+            --parchment-dark: #E8D9BE;
+            --terracotta: #C4622D;
+            --terracotta-light: #D97B45;
+            --terracotta-deep: #9E4A20;
+            --navy: #1C2B4A;
+            --navy-light: #2A3F6B;
+            --gold: #B8953A;
+            --gold-light: #D4B05A;
+            --sand: #D4B896;
+            --ink: #2C1F0F;
+            --cream: #FBF5EA;
+    }
+
+    * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+    }
+
+    html {
+            scroll-behavior: smooth;
+    }
+    header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 3rem;
+            z-index: 100;
+    }
+
+    header h2 {
+            color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            letter-spacing: 0.15em;
+            cursor: pointer;
+    }
+
+    nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+    }
+
+    nav a {
+            text-decoration: none;
+            color: var(--parchment);
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+            font-family: 'Cormorant Garamond', serif;
+    }
+
+    nav a:hover {
+            color: var(--gold);
+    }
+
+   
+    .hero-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+    }
+
+    .hero-pic {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+    }
+    .hero-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+            to bottom,
+            rgba(10, 15, 30, 0.45) 0%,
+            rgba(10, 15, 30, 0.2) 50%,
+            rgba(10, 15, 30, 0.55) 100%
+            );
+            z-index: 1;
+    }
+
+    .hero {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            color: var(--parchment);
+            text-align: center;
+            width: 100%;
+    }
+
+    .location-tan {
+            margin-bottom: 1.2rem;
+            color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+    }
+
+    .name {
+            line-height: 1;
+            margin-bottom: 1.5rem;
+    }
+
+    .first {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 130px;
+            font-weight: 700;
+            font-style: italic;
+            color: var(--parchment);
+    }
+
+    .second {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 130px;
+            font-weight: 700;
+            font-style: italic;
+            color: var(--terracotta);
+    }
+
+    .description {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--parchment);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+    }
+
+    .loca {
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
+    }
+    .about {
+            position: relative;
+            z-index: 20;
+            background-color: var(--cream);
+            padding: 5rem 6rem;
+    }
+
+    .about .label {
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            margin-bottom: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+    }
+
+    .about .heading {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            font-style: italic;
+            color: var(--ink);
+            line-height: 1.1;
+            margin-bottom: 1.8rem;
+    }
+    .divider {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 3rem;
+            width: 100%;
+    }
+
+    .divider::before {
+            content: '';
+            width: 3rem;
+            height: 1px;
+            background-color: var(--gold);
+    }
+
+    .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: var(--gold);
+    }
+
+    .diamond {
+            color: var(--gold);
+            font-size: 0.45rem;
+    }
+
+    
+    .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+    }
+
+    
+    .left-col p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            color: var(--ink);
+            line-height: 1.85;
+            margin-bottom: 1.5rem;
+    }
+
+    .quote-block {
+            border-left: 3px solid var(--terracotta);
+            padding: 1.2rem 1.5rem;
+            margin: 2rem 0;
+            background-color: #F0E6D0;
+    }
+
+    .quote-block p {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--ink);
+            line-height: 1.8;
+            margin-bottom: 0.6rem !important;
+    }
+
+    .quote-block cite {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 0.8rem;
+            color: var(--terracotta);
+            display: block;
+    }
+    .timeline {
+            display: flex;
+            flex-direction: column;
+    }
+
+    .timeline-item {
+            display: flex;
+            gap: 1rem;
+            position: relative;
+    }
+
+    .timeline-marker {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 0.2rem;
+            flex-shrink: 0;
+    }
+
+    .timeline-marker .t-diamond {
+            color: var(--terracotta);
+            font-size: 0.5rem;
+            z-index: 1;
+    }
+
+    .timeline-marker::after {
+            content: '';
+            width: 1px;
+            flex: 1;
+            min-height: 30px;
+            background-color: var(--sand);
+            margin-top: 4px;
+    }
+
+    .timeline-item:last-child .timeline-marker::after {
+            display: none;
+    }
+
+    .timeline-content {
+            padding-bottom: 2rem;
+    }
+
+    .timeline-content .t-date {
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            margin-bottom: 0.3rem;
+            font-family: 'Cormorant Garamond', serif;
+    }
+
+    .timeline-content .t-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.4rem;
+    }
+
+    .timeline-content .t-desc {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.875rem;
+            color: #6B5B45;
+            line-height: 1.65;
+    }
+    .landmarks {
+            background-color: var(--navy);
+            color: var(--parchment);
+    }
+    .landmarks-header {
+            text-align: center;
+            padding: 5rem 3rem 3rem;
+    }
+    .landmarks-label {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.8rem;
+    }
+    .landmarks-heading {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--parchment);
+            margin-bottom: 1.2rem;
+    }
+    .landmarks-heading em {
+            font-style: italic;
+            font-weight: 300;
+    }
+    .landmarks-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 200px;
+            margin: 0 auto 1rem;
+    }
+    .lm-line {
+            flex: 1;
+            height: 1px;
+            background-color: var(--gold);
+            opacity: 0.5;
+    }
+    .lm-diamond {
+            color: var(--gold);
+            font-size: 0.4rem;
+    }
+    .landmarks-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+    }
+    .lm-card {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            min-height: 320px;
+            background-color: #0f1a2e;
+    }
+    .lm-full {
+            grid-column: 1 / -1;
+            min-height: 420px;
+    }
+    .lm-half {
+            grid-column: span 1;
+    }
+    .lm-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            position: absolute;
+            inset: 0;
+            transition: transform 0.6s ease;
+    }
+    .lm-card:hover .lm-img {
+            transform: scale(1.04);
+    }
+    .lm-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+            to top,
+            rgba(10, 18, 36, 0.92) 0%,
+            rgba(10, 18, 36, 0.3) 50%,
+            rgba(10, 18, 36, 0.05) 100%
+                    );
+            z-index: 1;
+    }
+    .lm-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 2rem;
+            z-index: 2;
+    }
+    .lm-num {
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+            margin-bottom: 0.4rem;
+    }
+    .lm-tag {
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--parchment);
+            background-color: var(--terracotta);
+            padding: 0.2rem 0.6rem;
+            margin-bottom: 0.6rem;
+    }
+    .lm-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--parchment);
+            line-height: 1.1;
+    }
+    .lm-full .lm-name {
+            font-size: 2.2rem;
+    }
+    .food {
+            background-color: var(--parchment-dark);
+            padding: 5rem 6rem;
+            position: relative;
+            z-index: 20;
+    }
+
+    .food-label {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            margin-bottom: 0.8rem;
+    }
+
+    .food-heading {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+    }
+
+    .food-heading em {
+            font-style: italic;
+            font-weight: 400;
+    }
+
+    .food-divider {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 3rem;
+    }
+
+    .fd-line-short {
+            width: 2.5rem;
+            height: 1px;
+            background-color: var(--gold);
+    }
+
+    .fd-diamond {
+            color: var(--gold);
+            font-size: 0.4rem;
+    }
+
+    
+    .food-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+    }
+
+    
+    .food-item {
+            display: flex;
+            gap: 1.2rem;
+            margin-bottom: 2.5rem;
+            align-items: flex-start;
+    }
+
+    .food-icon {
+            width: 44px;
+            height: 44px;
+            background-color: var(--gold);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+    }
+
+    .food-text h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.4rem;
+    }
+
+    .food-text p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            color: #5A4530;
+            line-height: 1.7;
+    }
+
+    
+    .tea-card {
+            background-color: var(--navy);
+            padding: 2.5rem;
+            align-self: start;
+    }
+
+    .tea-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--gold);
+            margin-bottom: 1.2rem;
+    }
+
+    .tea-intro {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.92rem;
+            color: var(--parchment);
+            line-height: 1.75;
+            margin-bottom: 1rem;
+    }
+
+    .tea-body {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.88rem;
+            color: #A89880;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+    }
+
+    .tea-steps {
+            list-style: none;
+            counter-reset: tea-counter;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+    }
+
+    .tea-steps li {
+            counter-increment: tea-counter;
+            display: flex;
+            gap: 0.8rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.85rem;
+            color: var(--parchment);
+            line-height: 1.6;
+    }
+
+    .tea-steps li::before {
+            content: counter(tea-counter);
+            background-color: var(--terracotta);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 2px;
+    }
+
+
+
+    .travel {
+            background-color: var(--cream);
+            padding: 5rem 6rem;
+            position: relative;
+            z-index: 20;
+    }
+
+    .travel-label {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            margin-bottom: 0.8rem;
+    }
+
+    .travel-heading {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+    }
+
+    .travel-heading em {
+            font-style: italic;
+            font-weight: 400;
+    }
+
+    .travel-divider {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 3rem;
+    }
+
+    .tv-line {
+            width: 2.5rem;
+            height: 1px;
+            background-color: var(--gold);
+    }
+
+    .tv-diamond {
+            color: var(--gold);
+            font-size: 0.4rem;
+    }
+    .travel-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+    }
+
+    .travel-card {
+            border: 1px solid var(--parchment-dark);
+            padding: 2rem;
+            background-color: white;
+            transition: background-color 0.4s ease, border-color 0.4s ease, transform 0.3s ease;
+            cursor: pointer;
+    }
+
+        .travel-card:hover {
+            background-color: var(--navy);
+            border-color: var(--gold);
+            transform: translateY(-6px);
+        }
+
+        .travel-card:hover h4 {
+            color: var(--gold);
+        }
+
+        .travel-card:hover p {
+            color: var(--parchment);
+        }
+
+        .travel-icon {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .travel-card h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--terracotta);
+            margin-bottom: 0.8rem;
+        }
+
+        .travel-card p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            color: #5A4530;
+            line-height: 1.75;
+        }
+        .practical-box {
+            background-color: var(--terracotta);
+            padding: 2.5rem 3rem;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .practical-box h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--parchment);
+            margin-bottom: 1.5rem;
+        }
+
+        .practical-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .practical-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .practical-list li {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.88rem;
+            color: var(--parchment);
+            line-height: 1.65;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .practical-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--parchment);
+            opacity: 0.7;
+        }
+        .footer {
+            background-color: #0D1520;
+            padding: 5rem 3rem 3rem;
+            text-align: center;
+        }
+
+        .footer-top {
+            margin-bottom: 3rem;
+        }
+
+        .footer-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+        }
+
+        .footer-sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--sand);
+            letter-spacing: 0.05em;
+        }
+
+        .footer-divider {
+            width: 100%;
+            height: 1px;
+            background-color: rgba(184, 149, 58, 0.25);
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-credits {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            color: var(--sand);
+            opacity: 0.6;
+        }
+        .icons-section {
+            background-color: var(--parchment-dark);
+            padding: 5rem 6rem;
+            position: relative;
+            z-index: 20;
+        }
+
+        .icons-label {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            margin-bottom: 0.8rem;
+        }
+
+        .icons-heading {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+        }
+
+        .icons-heading em {
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .icons-divider {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .ic-line {
+            width: 2.5rem;
+            height: 1px;
+            background-color: var(--gold);
+        }
+
+        .ic-diamond {
+            color: var(--gold);
+            font-size: 0.4rem;
+        }
+
+        .icons-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.2rem;
+            align-items: start;
+        }
+            .icons-grid .icon-card:nth-child(1) { grid-column: 1; }
+            .icons-grid .icon-card:nth-child(2) { grid-column: 2; }
+            .icons-grid .icon-card:nth-child(3) { grid-column: 3; }
+            .icons-grid .icon-card:nth-child(4) { grid-column: 4; }
+            .icons-grid .icon-card:nth-child(5) { grid-column: 5; }
+            .icons-grid .icon-card:nth-child(6) { grid-column: 1; }
+
+        .icon-card {
+            background-color: var(--cream);
+            padding: 1.5rem;
+            border: 1px solid transparent;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .icon-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-4px);
+        }
+
+        .icon-avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .icon-years {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            color: var(--terracotta);
+            margin-bottom: 0.3rem;
+        }
+
+        .icon-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+        }
+
+        .icon-role {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 0.8rem;
+            color: var(--terracotta);
+            margin-bottom: 0.8rem;
+        }
+
+        .icon-desc {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.82rem;
+            color: #5A4530;
+            line-height: 1.7;
+        }
+  </style>
+ </head>
+ <body>
+  <header>
+   <h2>
+    TANGIER
+   </h2>
+   <nav>
+    <ul>
+     <li>
+      <a href="#about">
+       History
+      </a>
+     </li>
+     <li>
+      <a href="#landmarks">
+       Landmarks
+      </a>
+     </li>
+     <li>
+      <a href="#food">
+       Food
+      </a>
+     </li>
+     <li>
+      <a href="#visit">
+       Travel
+      </a>
+     </li>
+     <li>
+      <a href="#people">
+       Icons
+      </a>
+     </li>
+     
+    </ul>
+   </nav>
+  </header>
+  <div class="hero-section">
+   <img alt="Tangier skyline" class="hero-pic" src="background image.jpeg"/>
+   <section class="hero">
+    <div class="location-tan">
+     35°N — Gateway to Africa &amp; Europe
+    </div>
+    <div class="name">
+     <span class="first">
+      TAN
+     </span>
+     <span class="second">
+      GIER
+     </span>
+    </div>
+    <div class="description">
+     Where the Mediterranean meets the Atlantic,
+     <br/>
+     and myth lives between the minarets
+    </div>
+    <div class="loca">
+     35°47'N · 5°49'W · Elevation 86m
+    </div>
+   </section>
+  </div>
+  <section class="about" id="about">
+   <div class="label">
+    The City's Story
+   </div>
+   <div class="heading">
+    A History Written
+    <br/>
+    in Many Tongues
+   </div>
+   <div class="divider">
+    <span class="diamond">
+     ◆
+    </span>
+   </div>
+   <div class="container">
+    <div class="left-col">
+     <p>
+        Tangier is one of the world's great threshold cities. Sitting at the
+        northwestern tip of Africa, where the Strait of Gibraltar narrows to barely
+        14 kilometers, the city has always been a place of meeting, mixing, and
+        transgression — a seam between continents, cultures, and eras.
+     </p>
+     <p>
+        Founded as Tingis by the Berber Mauri people, the city was later coveted
+        by the Phoenicians, Carthaginians, Romans, Vandals, Byzantines, Arabs,
+        Portuguese, Spanish, and British. Each left their mark. The layered
+        architecture of the Kasbah tells this story in stone and mortar.
+     </p>
+     <div class="quote-block">
+      <p>
+        "Tangier is a lot of things to a lot of people. It has been a refuge,
+        a den of spies, a paradise of cheap living, an international scandal,
+        and a place of creative freedom unlike anywhere else on earth."
+      </p>
+      <cite>
+       — The International Zone era, 1923–1956
+      </cite>
+     </div>
+     <p>
+        The most romanticized chapter came in the 20th century. From 1923 to 1956,
+        Tangier was governed by an international committee of eight European nations —
+        a stateless city with no laws around censorship, currency, or customs. It became
+        a magnet for eccentrics, exiles, spies, and artists. The Beat Generation
+        descended: Paul Bowles made it his home for 52 years. William Burroughs wrote
+        Naked Lunch in a medina hotel room. Jack Kerouac and Allen Ginsberg visited.
+        Tennessee Williams came. Even the Rolling Stones.
+     </p>
+     <p>
+        With Moroccan independence in 1956, the International Zone was absorbed into
+        the new kingdom. The city's wild chapter closed — but Tangier kept its
+        cosmopolitan soul. Today it is Morocco's fastest-growing city, home to a new
+        financial district and the largest port in Africa, yet the medina still feels
+        like a world that time carefully preserved.
+     </p>
+    </div>
+    <div class="timeline">
+     <div class="timeline-item">
+      <div class="timeline-marker">
+       <span class="t-diamond">
+        ◆
+       </span>
+      </div>
+      <div class="timeline-content">
+       <div class="t-date">
+        5th Century BC
+       </div>
+       <div class="t-title">
+        Phoenician Settlement
+       </div>
+       <div class="t-desc">
+        The Phoenicians establish a trading post at the northern tip of Africa, calling it Tingis — one of the oldest continuously inhabited cities in the world.
+       </div>
+      </div>
+     </div>
+     <div class="timeline-item">
+      <div class="timeline-marker">
+       <span class="t-diamond">
+        ◆
+       </span>
+      </div>
+      <div class="timeline-content">
+       <div class="t-date">
+        33 BC
+       </div>
+       <div class="t-title">
+        Roman Tingis
+       </div>
+       <div class="t-desc">
+        Augustus grants Tingis the status of Roman municipality. It becomes capital of the province of Mauretania Tingitana. Ruins of Roman villas still surface in the modern city.
+       </div>
+      </div>
+     </div>
+     <div class="timeline-item">
+      <div class="timeline-marker">
+       <span class="t-diamond">
+        ◆
+       </span>
+      </div>
+      <div class="timeline-content">
+       <div class="t-date">
+        702 AD
+       </div>
+       <div class="t-title">
+        Arab Conquest
+       </div>
+       <div class="t-desc">
+        Moorish forces under Musa ibn Nusayr take the city. Tangier becomes a launching point for the Islamic conquest of the Iberian Peninsula.
+       </div>
+      </div>
+     </div>
+     <div class="timeline-item">
+      <div class="timeline-marker">
+       <span class="t-diamond">
+        ◆
+       </span>
+      </div>
+      <div class="timeline-content">
+       <div class="t-date">
+        1304
+       </div>
+       <div class="t-title">
+        Ibn Battuta is Born
+       </div>
+       <div class="t-desc">
+        The greatest explorer of the medieval world enters the world here. He will travel 120,000 km over 29 years, visiting 44 modern countries.
+       </div>
+      </div>
+     </div>
+     <div class="timeline-item">
+      <div class="timeline-marker">
+       <span class="t-diamond">
+        ◆
+       </span>
+      </div>
+      <div class="timeline-content">
+       <div class="t-date">
+        1923–1956
+       </div>
+       <div class="t-title">
+        The International Zone
+       </div>
+       <div class="t-desc">
+        Eight European powers jointly administer Tangier. The resulting legal vacuum creates the most freewheeling city on earth — a golden era of art, espionage, and literature.
+       </div>
+      </div>
+     </div>
+     <div class="timeline-item">
+      <div class="timeline-marker">
+       <span class="t-diamond">
+        ◆
+       </span>
+      </div>
+      <div class="timeline-content">
+       <div class="t-date">
+        1956
+       </div>
+       <div class="t-title">
+        Moroccan Independence
+       </div>
+       <div class="t-desc">
+        The International Zone ends as Morocco gains independence under King Mohammed V. The golden age closes, but the legend lives on.
+       </div>
+      </div>
+     </div>
+     <div class="timeline-item">
+      <div class="timeline-marker">
+       <span class="t-diamond">
+        ◆
+       </span>
+      </div>
+      <div class="timeline-content">
+       <div class="t-date">
+        2007–Today
+       </div>
+       <div class="t-title">
+        The New Tangier
+       </div>
+       <div class="t-desc">
+        Tanger-Med becomes Africa's largest container port. A new financial district rises. The city of 700,000 now anchors a grand new vision for Morocco.
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="landmarks" id="landmarks">
+   <div class="landmarks-header">
+    <div class="landmarks-label">
+     Must-See Places
+    </div>
+    <div class="landmarks-heading">
+     Landmarks &amp;
+     <em>
+      Sacred Ground
+     </em>
+    </div>
+    <div class="landmarks-divider">
+     <span class="lm-line">
+     </span>
+     <span class="lm-diamond">
+      ◆
+     </span>
+     <span class="lm-line">
+     </span>
+    </div>
+   </div>
+   <div class="landmarks-grid">
+    <div class="lm-card lm-full">
+     <img alt="The Kasbah" class="lm-img" src="kasbah.jpg"/>
+     <div class="lm-overlay">
+     </div>
+     <div class="lm-info">
+      <span class="lm-num">
+       01
+      </span>
+      <span class="lm-tag">
+       Historic Quarter
+      </span>
+      <h3 class="lm-name">
+       The Kasbah
+      </h3>
+     </div>
+    </div>
+    <div class="lm-card lm-half">
+     <img alt="Cap Spartel" class="lm-img" src="cap spartel.jpg"/>
+     <div class="lm-overlay">
+     </div>
+     <div class="lm-info">
+      <span class="lm-num">
+       02
+      </span>
+      <span class="lm-tag">
+       Natural Wonder
+      </span>
+      <h3 class="lm-name">
+       Cap Spartel
+      </h3>
+     </div>
+    </div>
+    <div class="lm-card lm-half">
+     <img alt="Hercules Cave" class="lm-img" src="hercules.jpg"/>
+     <div class="lm-overlay">
+     </div>
+     <div class="lm-info">
+      <span class="lm-num">
+       03
+      </span>
+      <span class="lm-tag">
+       Archaeological Site
+      </span>
+      <h3 class="lm-name">
+       Hercules Cave
+      </h3>
+     </div>
+    </div>
+    <div class="lm-card lm-half">
+     <img alt="The Grand Socco" class="lm-img" src="grand.jpg"/>
+     <div class="lm-overlay">
+     </div>
+     <div class="lm-info">
+      <span class="lm-num">
+       04
+      </span>
+      <span class="lm-tag">
+       City Square
+      </span>
+      <h3 class="lm-name">
+       The Grand Socco
+      </h3>
+     </div>
+    </div>
+    <div class="lm-card lm-half">
+     <img alt="American Legation" class="lm-img" src="rmilat.jpg"/>
+     <div class="lm-overlay">
+     </div>
+     <div class="lm-info">
+      <span class="lm-num">
+       05
+      </span>
+      <span class="lm-tag">
+       Forest
+      </span>
+      <h3 class="lm-name">
+       Rmilat
+      </h3>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="food" id="food">
+   <div class="food-label">
+    A Culinary Portrait
+   </div>
+   <div class="food-heading">
+    What Tangier
+    <br/>
+    <em>
+     Tastes Like
+    </em>
+   </div>
+   <div class="food-divider">
+    <span class="fd-line-short">
+    </span>
+    <span class="fd-diamond">
+     ◆
+    </span>
+   </div>
+   <div class="food-body">
+    <div class="food-list">
+     <div class="food-item">
+      <div class="food-icon">
+       🫓
+      </div>
+      <div class="food-text">
+       <h4>
+        Msemen
+       </h4>
+       <p>
+        The folded flatbread of Morocco — layers of semolina dough pressed into a square, griddle-cooked until golden and flaky, served with argan oil and honey. Found at every breakfast table and street corner bakery in the medina, best eaten warm with a glass of tea.
+       </p>
+      </div>
+     </div>
+     <div class="food-item">
+      <div class="food-icon">
+       🍲
+      </div>
+      <div class="food-text">
+       <h4>
+        Harira
+       </h4>
+       <p>
+        The national soup. A thick, warming broth of tomatoes, lentils, chickpeas, lamb, and fragrant spices — cinnamon, ginger, turmeric, saffron — finished with lemon and fresh coriander. During Ramadan it is the meal that breaks the fast. The rest of the year, it is simply magnificent.
+       </p>
+      </div>
+     </div>
+     <div class="food-item">
+      <div class="food-icon">
+       🐟
+      </div>
+      <div class="food-text">
+       <h4>
+        Fresh Seafood
+       </h4>
+       <p>
+        Tangier sits at the confluence of two seas. The fishing boats unload daily at the port: sea bass, red mullet, sole, giant prawns, and the extraordinary boucheron of fresh sardines — the true local speciality. Head to the Port Fish Market for lunch and eat what was swimming that morning.
+       </p>
+      </div>
+     </div>
+     <div class="food-item">
+      <div class="food-icon">
+       🥧
+      </div>
+      <div class="food-text">
+       <h4>
+        Bastilla
+       </h4>
+       <p>
+        The jewel of Moroccan cuisine — a pie of paper-thin warqa pastry layered with spiced pigeon (or chicken), egg, almonds, and dusted with cinnamon and powdered sugar. The savory-sweetness version is extraordinary. In Tangier, it appears on special occasion menus and in the finest restaurants of the medina.
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="tea-card">
+     <div class="tea-card-inner">
+      <h3>
+       <em>
+        The Art of Mint Tea
+       </em>
+      </h3>
+      <p class="tea-intro">
+       In Tangier, mint tea —
+       <em>
+        atay
+       </em>
+       — is not a drink but a ceremony, a philosophy, a relationship. The Moroccan saying goes: the first glass is as gentle as life, the second as strong as love, and the third as bitter as death.
+      </p>
+      <p class="tea-body">
+       Tea is prepared with theatrical care: the pot raised high to aerate and create foam, the glass filled and poured back three times. To rush it is an insult. To be offered it is a welcome.
+      </p>
+      <ol class="tea-steps">
+       <li>
+        Chinese gunpowder green tea is steeped in boiling water, the first steep discarded to rinse the bitterness.
+       </li>
+       <li>
+        Fresh spearmint —
+        <em>
+         na'na
+        </em>
+        — is packed generously into the teapot along with generous cones of sugar.
+       </li>
+       <li>
+        The tea is poured from a great height to create the signature foam crown on each glass.
+       </li>
+       <li>
+        Three rounds are served. The first to visitors, the second to family, the third to contemplation.
+       </li>
+      </ol>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="travel" id="visit">
+   <div class="travel-label">
+    Traveller's Notes
+   </div>
+   <div class="travel-heading">
+    Why Visit
+    <em>
+     Tangier
+    </em>
+   </div>
+   <div class="travel-divider">
+    <span class="tv-line">
+    </span>
+    <span class="tv-diamond">
+     ◆
+    </span>
+   </div>
+   <div class="travel-cards">
+    <div class="travel-card">
+          <h4>
+      Two Continents in One View
+     </h4>
+     <p>
+      On a clear day from the Kasbah terrace, you can see Spain across the Strait. Tangier is the only city in the world where you can stand at the edge of Africa and see Europe with the naked eye. The geography alone is worth the journey.
+     </p>
+    </div>
+    <div class="travel-card">
+          <h4>
+      Living History Everywhere
+     </h4>
+     <p>
+      Unlike cities that have buried or museumified their past, Tangier wears its history visibly. The medina operates as it has for centuries. Roman columns appear in alleyways. Phoenician anchors rest in the archaeology museum. The past is simply present.
+     </p>
+    </div>
+    <div class="travel-card">
+          <h4>
+      The Literary Pilgrimage
+     </h4>
+     <p>
+      Walk the streets that Paul Bowles, William Burroughs, and Jean Genet walked. Visit the American Legation — the only US National Historic Landmark outside America — which houses a remarkable archive of the International Zone era.
+     </p>
+    </div>
+   </div>
+   <div class="practical-box">
+    <h3>
+     Practical Travel Notes
+    </h3>
+    <div class="practical-grid">
+     <ul class="practical-list">
+      <li>
+       Best season is April–June and September–October. Summer can be crowded, winter is mild and atmospheric.
+      </li>
+      <li>
+       The medina is best explored on foot. Hire a licensed guide for the first morning to orient yourself.
+      </li>
+      <li>
+       Learn a few phrases of Darija (Moroccan Arabic) — even basic greetings transform the local reception.
+      </li>
+      <li>
+       The Petit Socco in the medina is the best place to watch the world go by over a glass of orange juice.
+      </li>
+     </ul>
+     <ul class="practical-list">
+      <li>
+       Bargaining is expected in the souks. Start at roughly 40% of the asking price and settle in the middle.
+      </li>
+      <li>
+       The train connects Tangier to Casablanca (4hrs) and Marrakech (9h). The new TGV is excellent.
+      </li>
+      <li>
+       Currency is the Moroccan Dirham (MAD). Credit cards work in hotels; carry cash for the medina.
+      </li>
+      <li>
+       Dress modestly in the medina and religious sites. Shoulders and knees covered is the respected norm.
+      </li>
+     </ul>
+    </div>
+   </div>
+  </section>
+    <section class="icons-section" id="people">
+
+        <div class="icons-label">The Tangerine Canon</div>
+        <div class="icons-heading">Souls Shaped by <em>This City</em></div>
+        <div class="icons-divider">
+            <span class="ic-line"></span>
+            <span class="ic-diamond">◆</span>
+        </div>
+
+        <div class="icons-grid">
+
+            <div class="icon-card">
+                <div class="icon-avatar" style="background-color: #C4622D;">🧭</div>
+                <div class="icon-years">1304 — 1368</div>
+                <h4 class="icon-name">Ibn Battuta</h4>
+                <div class="icon-role">Explorer &amp; Scholar</div>
+                <p class="icon-desc">Born in Tangier, he embarked at age 21 on a journey that would cover 120,000 km across Africa, the Middle East, Central Asia, India, China, and Southeast Asia — more than any explorer before him. His rihla, or travel bible, remains one of the greatest works of world literature.</p>
+            </div>
+
+            <div class="icon-card">
+                <div class="icon-avatar" style="background-color: #1C2B4A;">🎵</div>
+                <div class="icon-years">1910 — 1999</div>
+                <h4 class="icon-name">Paul Bowles</h4>
+                <div class="icon-role">Writer &amp; Composer</div>
+                <p class="icon-desc">The most famous of Tangier's expatriates arrived in 1947, drawn by a postcard from Gertrude Stein. He stayed 52 years. His novel The Sheltering Sky (1949) is a profound meditation on the existential void at the edge of the desert — one of the great American novels, written in Africa.</p>
+            </div>
+
+            <div class="icon-card ic-featured">
+                <div class="icon-avatar" style="background-color: #2A3F6B;">✒️</div>
+                <div class="icon-years">1914 — 1997</div>
+                <h4 class="icon-name">William Burroughs</h4>
+                <div class="icon-role">Writer</div>
+                <p class="icon-desc">Burroughs spent pivotal years in Tangier's medina, writing what would become Naked Lunch in the Hotel Muniria. He described the city as "a special madness." Kerouac and Ginsberg visited to help him assemble the manuscript. The resulting novel was published to scandal and became a landmark of American literature.</p>
+            </div>
+
+            <div class="icon-card">
+                <div class="icon-avatar" style="background-color: #4A7C3F;">🎨</div>
+                <div class="icon-years">1869 — 1954</div>
+                <h4 class="icon-name">Henri Matisse</h4>
+                <div class="icon-role">Painter</div>
+                <p class="icon-desc">Matisse visited Tangier twice between 1912 and 1913, producing over 24 paintings. The city's extraordinary light, colors, and geometry transformed his palette and compositional approach. The Tangier paintings — studies of the Kasbah, the Zitoun café, the female figure against blue tiles — are among his greatest works.</p>
+            </div>
+
+            <div class="icon-card">
+                <div class="icon-avatar" style="background-color: #7B3F6E;">📖</div>
+                <div class="icon-years">1910 — 1986</div>
+                <h4 class="icon-name">Jean Genet</h4>
+                <div class="icon-role">Playwright &amp; Novelist</div>
+                <p class="icon-desc">The French playwright and lifelong subversive found in Tangier a city that matched his sensibility — radical, empowered, alive with transgression. He spent his last years in the Hotel El-Minzah, completing his final masterwork. He died in a Paris hotel room in 1986 and, by his own request, was buried in the Spanish cemetery in Larache.</p>
+            </div>
+
+            <div class="icon-card">
+                <div class="icon-avatar" style="background-color: #8B6914;">📜</div>
+                <div class="icon-years">c. 124 — 170 AD</div>
+                <h4 class="icon-name">Lucius Apuleius</h4>
+                <div class="icon-role">Philosopher &amp; Novelist</div>
+                <p class="icon-desc">The Berber author of The Golden Ass — the only Roman novel to survive completely — was born in the region of Tingitana. Writing in Latin, he produced what is considered the first surviving novel in the Western literary tradition, a picaresque tale of metamorphosis and mystery religions that influenced writers from Boccaccio to Borges.</p>
+            </div>
+
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-top">
+            <h2 class="footer-title">TANGIER</h2>
+            <p class="footer-sub">35°47'N · Where two seas become one</p>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+            <p class="footer-credits">A CITY OF CROSSINGS · TANGER · TANJA · طنجة</p>
+        </div>
+    </footer>
+
+</body>
+</html>
